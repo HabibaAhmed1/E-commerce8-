@@ -1,8 +1,11 @@
-import React from "react";
+import FullPageLoader from "./components/FullPageLoader";
+
 
 function App() {
   return (
-    <div className="text-emerald-500 text-3xl text-center">App</div>
+    <div>
+     Project Team 8
+    </div>
   );
 }
 
