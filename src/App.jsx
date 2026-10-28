@@ -1,5 +1,5 @@
 import FullPageLoader from "./components/FullPageLoader";
-
+import "./api/axiosInterceptors";
 
 function App() {
   return (
