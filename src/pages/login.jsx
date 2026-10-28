@@ -1,4 +1,6 @@
- import React, { useState } from 'react';
+import React, { useState } from 'react';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
@@ -11,13 +13,15 @@ export default function LoginPage() {
     setError('');
 
     if (!email || !password) {
-      setError('جميع الحقول مطلوبة');
+      toast.error('All fields are required');
+      setError('All fields are required');
       return;
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
-      setError('صيغة البريد الإلكتروني غير صحيحة');
+      toast.error('Invalid email format');
+      setError('Invalid email format');
       return;
     }
 
@@ -35,13 +39,14 @@ export default function LoginPage() {
       const data = await response.json();
 
       if (!response.ok) {
-        throw new Error(data.message || 'فشل تسجيل الدخول');
+        throw new Error(data.message || 'Failed to login');
       }
 
+      toast.success('Login successful!');
       console.log('Login Success:', data);
-      alert('تم تسجيل الدخول بنجاح!');
       
     } catch (err) {
+      toast.error(err.message);
       setError(err.message);
     } finally {
       setLoading(false);
@@ -51,17 +56,17 @@ export default function LoginPage() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-gray-100">
       <div className="w-full max-w-md p-8 bg-white rounded-lg shadow-md">
-        <h2 className="text-2xl font-bold text-center mb-6 text-gray-800">تسجيل الدخول</h2>
+        <h2 className="text-2xl font-bold text-center mb-6 text-gray-800">Login</h2>
         
         {error && (
-          <div className="mb-4 p-3 bg-red-100 text-red-750 text-sm rounded">
+          <div className="mb-4 p-3 bg-red-100 text-red-700 text-sm rounded">
             {error}
           </div>
         )}
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700">البريد الإلكتروني</label>
+            <label className="block text-sm font-medium text-gray-700">Email Address</label>
             <input
               type="email"
               value={email}
@@ -72,7 +77,7 @@ export default function LoginPage() {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700">كلمة المرور</label>
+            <label className="block text-sm font-medium text-gray-700">Password</label>
             <input
               type="password"
               value={password}
@@ -87,7 +92,7 @@ export default function LoginPage() {
             disabled={loading}
             className="w-full py-2 px-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-md transition duration-200 disabled:bg-blue-300"
           >
-            {loading ? 'جاري تسجيل الدخول...' : 'دخول'}
+            {loading ? 'Logging in...' : 'Login'}
           </button>
         </form>
       </div>
