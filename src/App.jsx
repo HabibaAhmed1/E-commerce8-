@@ -1,7 +1,7 @@
 import {Routes , Route , Navigate} from "react-router-dom";
 import FullPageLoader from "./components/FullPageLoader";
 import "./api/axiosInterceptors";
-
+import Users from "./pages/Users";
 import ProtectedRoute from './components/protectedRoute';
 import DashboardLayout from './layouts/dashboardLayout';
 import Login from './pages/login';
@@ -18,11 +18,7 @@ function App() {
   return (
     <div>
       <Routes>
-        
-        {/* public route */}
         <Route path="/login" element={<Login />}/>
-
-        {/* protected dashboard routes (admin only) */}
         <Route element={<ProtectedRoute />}>
           <Route path="/dashboard" element={<DashboardLayout />}>
             <Route index element={<DashboardHome />}/>
@@ -39,7 +35,6 @@ function App() {
           <Route path="*" element={<NotFound />} />
           <Route path="fullPageLoader" element={<FullPageLoader />} />
       </Routes>
-     {/* Project Team 8 */}
     </div>
   );
 }
