@@ -19,6 +19,7 @@ export default function Sidebar({
   isOpen,
   onClose,
   user = mockUser,
+  onOpenLogoutModal,
 }) {
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
 
@@ -145,6 +146,7 @@ export default function Sidebar({
                 role="menuitem"
                 onClick={() => {
                   setIsUserMenuOpen(false);
+                  onOpenLogoutModal?.();
                 }}
                 className="flex w-full items-center gap-3 rounded-lg px-3 py-3 text-left text-sm text-red-600 transition-colors hover:bg-red-50 dark:text-red-400 dark:hover:bg-red-500/10 dark:hover:text-red-300"
               >
