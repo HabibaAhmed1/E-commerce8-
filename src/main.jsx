@@ -6,11 +6,15 @@ import './index.css';
 import App from './App.jsx';
 import AuthProvider from './context/AuthContext.jsx';
 import './api/axiosInterceptors';
+import { BrowserRouter } from "react-router-dom";
 
-createRoot(document.getElementById('root')).render(
+
+createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <AuthProvider>
-      <App />
-    </AuthProvider>
+    <BrowserRouter>
+      <AuthProvider>
+       <App />
+      </AuthProvider>
+    </BrowserRouter>
   </StrictMode>
 );
