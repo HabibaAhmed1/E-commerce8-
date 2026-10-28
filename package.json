@@ -15,8 +15,12 @@
     "lucide-react": "^1.63.0",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
+<<<<<<< HEAD
     "react-router-dom": "^7.18.4",
     "react-toastify": "^11.2.0",
+=======
+    "react-toastify": "^11.1.0",
+>>>>>>> 53ee098c37f9f3682603556785ecd91c07835494
     "tailwindcss": "^4.3.3"
   },
   "devDependencies": {

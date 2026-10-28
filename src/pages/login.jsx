@@ -4,7 +4,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 
-export default function Login() {
+export default function LoginPage() {
   const [email, setEmail] = useState('admin@koda.com');
   const [password, setPassword] = useState('admin1212');
   const [loading, setLoading] = useState(false);
@@ -21,40 +21,7 @@ export default function Login() {
 
     setLoading(true);
 
-    /* 
-    
-    //API Authentication 
-    
-    try {
-      const response = await axios.post('https://e-commerce-api-3wara.vercel.app/api/auth/login', {
-        email,
-        password
-      });
-
-      const data = response.data;
-      toast.success('Login successful!');
-      localStorage.setItem('token', data.token || 'success_token'); 
-      
-      setTimeout(() => {
-        navigate('/dashboard');
-      }, 1000);
-      
-    } catch (err) {
-      let errorMsg = 'Failed to login';
-      if (err.response?.status === 404) {
-        errorMsg = 'User not found or invalid credentials';
-      } else if (err.response?.data?.message) {
-        errorMsg = err.response.data.message;
-      } else if (err.message) {
-        errorMsg = err.message;
-      }
-      toast.error(errorMsg);
-    } finally {
-      setLoading(false);
-    }
-    */
-
-    // Temporary Bypass for Demo/Testing
+    // Temporary Bypass for Demo/Testing & Smooth Dashboard Access
     setTimeout(() => {
       localStorage.setItem('token', 'mock_admin_token_12345');
       toast.success('Login successful!');
@@ -64,10 +31,6 @@ export default function Login() {
   };
 
   const handleGoogleLogin = () => {
-    /*
-    // Google Auth API Integration Endpoint
-    // await axios.post('https://e-commerce-api-3wara.vercel.app/api/auth/google', { token });
-    */
     localStorage.setItem('token', 'mock_admin_token_12345');
     toast.success('Google login successful!');
     navigate('/dashboard');
@@ -77,6 +40,7 @@ export default function Login() {
     <div className="flex min-h-screen w-full items-center justify-center bg-[#0b0f19] p-4 lg:p-0">
       <div className="flex w-full max-w-5xl rounded-2xl overflow-hidden shadow-2xl bg-[#111827] border border-gray-800 flex-col lg:flex-row min-h-[600px]">
         
+        {/* Left Side: Gradient Banner & Features */}
         <div className="lg:w-1/2 bg-gradient-to-br from-blue-600 via-cyan-500 to-blue-700 p-8 lg:p-12 flex flex-col justify-between text-white relative">
           <div>
             <div className="flex items-center gap-2 mb-8">
@@ -85,7 +49,7 @@ export default function Login() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
                 </svg>
               </span>
-              
+              <span className="font-semibold text-lg tracking-wide">Koda Commerce</span>
             </div>
 
             <h1 className="text-3xl lg:text-4xl font-extrabold leading-tight mb-4">
@@ -112,6 +76,7 @@ export default function Login() {
           </div>
         </div>
 
+        {/* Right Side: Form */}
         <div className="lg:w-1/2 p-8 lg:p-12 flex flex-col justify-center bg-[#111827]">
           <div className="text-center mb-6">
             <div className="inline-block p-3 bg-gray-900 border border-gray-800 rounded-xl mb-4 shadow-inner">
@@ -130,16 +95,14 @@ export default function Login() {
               </div>
               <div className="relative">
                 <span className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-500">
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
+                  ✉️
                 </span>
                 <input
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="w-full pl-10 pr-4 py-3 bg-[#1f2937] border border-gray-700 rounded-xl text-white placeholder-gray-500 text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition"
-                  placeholder="Enter your email"
+                  placeholder="admin@koda.com"
                 />
               </div>
             </div>
@@ -148,16 +111,14 @@ export default function Login() {
               <label className="block text-xs font-semibold uppercase tracking-wider text-gray-400 mb-1">Password</label>
               <div className="relative">
                 <span className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-500">
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002-2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                  </svg>
+                  🔒
                 </span>
                 <input
                   type="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   className="w-full pl-10 pr-4 py-3 bg-[#1f2937] border border-gray-700 rounded-xl text-white placeholder-gray-500 text-sm focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition"
-                  placeholder="Enter your password"
+                  placeholder="••••••••"
                 />
               </div>
             </div>

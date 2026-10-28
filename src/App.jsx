@@ -19,47 +19,45 @@ import NotFound from './pages/NotFound';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-
 function App() {
   return (
-    <div>
+    <>
+      <FullPageLoader />
       <Routes>
+        {/* صفحة تسجيل الدخول، التسجيل، والخروج */}
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/logout" element={<Logout />} />
-        <Route path="/" element={<Login />} />
 
-        <Route element={<ProtectedRoute />}>
-          <Route path="/dashboard" element={<AdminLayout />}>
-            <Route index element={<DashboardHome />} />
-            <Route path="products" element={<ProductsList />} />
-            <Route path="products/new" element={<AddProduct />} />
-            <Route path="products/:id/edit" element={<EditProduct />} />
-            <Route path="orders" element={<OrdersList />} />
-            <Route path="orders/:id" element={<OrderDetails />} />
-            <Route path="users" element={<Users />} />
-            <Route path="carts" element={<CartsView />} />
-            <Route path="settings" element={<Settings />} />
-          </Route>
+        {/* إعادة توجيه من الرئيسية للداشبورد */}
+        <Route path="/" element={<Navigate to="/dashboard" replace />} />
+
+        {/* المسارات المحمية والخاصة بالداشبورد والصفحات الفرعية */}
+        <Route
+          path="/dashboard"
+          element={
+            <ProtectedRoute>
+              <AdminLayout />
+            </ProtectedRoute>
+          }
+        >
+          <Route index element={<DashboardHome />} />
+          <Route path="users" element={<Users />} />
+          <Route path="products" element={<ProductsList />} />
+          <Route path="products/new" element={<AddProduct />} />
+          <Route path="products/edit/:id" element={<EditProduct />} />
+          <Route path="orders" element={<OrdersList />} />
+          <Route path="orders/:id" element={<OrderDetails />} />
+          <Route path="carts" element={<CartsView />} />
+          <Route path="settings" element={<Settings />} />
         </Route>
 
-        <Route path="fullPageLoader" element={<FullPageLoader />} />
+        {/* صفحة 404 لو المسار مش موجود */}
         <Route path="*" element={<NotFound />} />
       </Routes>
 
-      <ToastContainer
-        position="top-right"
-        autoClose={2000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="dark"
-      />
-    </div>
+      <ToastContainer position="top-right" autoClose={2000} />
+    </>
   );
 }
 
