@@ -13,6 +13,7 @@ export default function Navbar({
   onMenuClick,
   onToggleDarkMode,
   isDarkMode,
+  onOpenLogoutModal,
 }) {
   return (
     <header className="flex h-16 items-center justify-between border-b border-gray-200 bg-white px-4 transition-colors md:px-6 dark:border-gray-800 dark:bg-gray-900">
@@ -92,9 +93,9 @@ export default function Navbar({
           aria-label="Logout"
           title="Logout"
          className="flex items-center gap-2 rounded-lg px-2 py-2 text-red-600 transition-colors hover:bg-red-50 dark:text-red-400 dark:hover:bg-red-950"
+         onClick={() => onOpenLogoutModal?.()}
         >
           <LogOut size={21} strokeWidth={2} />
-
           <span className="hidden text-sm font-medium lg:inline">
             Logout
           </span>
