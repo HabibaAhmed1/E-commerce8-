@@ -1,6 +1,13 @@
 import api from "./axios";
 
-export const login =(payload)=>api.post("/auth/login",payload);
+export const login = (credentials) =>
+  api.post("/auth/login", credentials);
 
-export const logout=()=> api.post("/auth/logout");
-export const getMe=()=>api.get("/auth/me");
+export const logout = () =>
+  api.post("/auth/logout");
+
+export const getCurrentUser = () =>
+  api.get("/auth/me");
+
+export const adminTest = () =>
+  api.get("/auth/admin-test");
