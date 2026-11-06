@@ -1,8 +1,16 @@
 import api from "./axios";
 
-export const fetchUsers=()=>api.get("/users/all");
-export const getUser = (id) => api.get(`/users/${id}`);
-export const deleteUser = (id) => api.delete(`/users/${id}`);
-export const addUser = (payload) => api.post("/users/add", payload);
+export const getAllUsers = () =>
+  api.get("/users/all");
 
-// export const updateUser = (id, payload) => api.patch(`/users/${id}`, payload);
+export const getUserById = (id) =>
+  api.get(`/users/${id}`);
+
+export const addUser = (userData) =>
+  api.post("/users/add", userData);
+
+export const updateUser = (id, userData) =>
+  api.patch(`/users/${id}`, userData);
+
+export const deleteUser = (id) =>
+  api.delete(`/users/${id}`);

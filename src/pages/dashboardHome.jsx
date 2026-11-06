@@ -1,26 +1,64 @@
+import { useEffect, useState } from "react";
+
 import OverviewBanner from "../components/dashboard/OverviewBanner";
 import StatsGrid from "../components/dashboard/StatsGrid";
 import OrderStatusSection from "../components/dashboard/OrderStatusSection";
 import TopProductsSection from "../components/dashboard/TopProductsSection";
 import RecentOrdersSection from "../components/dashboard/RecentOrdersSection";
+import LoadingSpinner from "../components/ui/LoadingSpinner";
+import { getDashboardStats } from "../api/dashboard.api";
 
 export default function Dashboard() {
+  const [dashboard, setDashboard] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+  const fetchDashboardData = async () => {
+    try {
+      const response = await getDashboardStats();
+
+      console.log("Dashboard API Response:", response);
+      console.log("Response Data:", response.data);
+
+      setDashboard(response.data.dashboard);
+    } catch (error) {
+      console.error("Dashboard Error:", error);
+      console.log("Status:", error.response?.status);
+      console.log("Error Data:", error.response?.data);
+      
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  fetchDashboardData();
+}, []);
+
+ if (loading) {
+  return (
+    <div className="min-h-screen flex items-center justify-center">
+      <LoadingSpinner size="lg" />
+    </div>
+  );
+}
+  if (error) return <p>{error}</p>;
+
+  if (!dashboard) return <p>No dashboard data available.</p>;
+
   return (
     <div className="space-y-[var(--spacing-6)]">
-      {/* 1. Welcome / Overview Banner */}
       <OverviewBanner />
 
-      {/* 2. Top Metric Stat Cards Grid */}
-      <StatsGrid />
+      <StatsGrid stats={dashboard} />
 
-      {/* 3. Middle Split Row (Fulfillment breakdown + Best sellers) */}
       <div className="grid gap-[var(--spacing-6)] xl:grid-cols-[1.1fr_0.9fr]">
-        <OrderStatusSection />
-        <TopProductsSection />
+        <OrderStatusSection ordersByStatus={dashboard.ordersByStatus} />
+
+        <TopProductsSection products={dashboard.topProducts} />
       </div>
 
-      {/* 4. Recent Orders Table / List */}
-      <RecentOrdersSection />
+      <RecentOrdersSection orders={dashboard.recentOrders} />
     </div>
   );
 }
