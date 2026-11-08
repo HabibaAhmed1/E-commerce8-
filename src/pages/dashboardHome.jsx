@@ -7,37 +7,61 @@ import RevenueChart from "../components/dashboard/RevenueChart";
 import TopProductsSection from "../components/dashboard/TopProductsSection";
 import RecentOrdersSection from "../components/dashboard/RecentOrdersSection";
 import DashboardSkeleton from "../components/dashboard/DashboardSkeleton";
+import ErrorState from "../components/ui/ErrorState";
 import { getDashboardStats } from "../api/dashboard.api";
 
 export default function Dashboard() {
   const [dashboard, setDashboard] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const [reloadKey, setReloadKey] = useState(0);
 
   useEffect(() => {
-  const fetchDashboardData = async () => {
-    try {
-      const response = await getDashboardStats();
+    let cancelled = false;
 
-      console.log("Dashboard API Response:", response);
-      console.log("Response Data:", response.data);
-      setDashboard(response.data.dashboard);
-    } catch (error) {
-      console.error("Dashboard Error:", error);
-      console.log("Status:", error.response?.status);
-      console.log("Error Data:", error.response?.data);
-      setError(error.response?.data?.message || "Failed to load dashboard data.");
-    } finally {
-      setLoading(false);
-    }
+    const fetchDashboardData = async () => {
+      try {
+        const response = await getDashboardStats();
+        if (cancelled) return;
+        setDashboard(response.data.dashboard);
+      } catch (err) {
+        if (cancelled) return;
+        console.error("Dashboard Error:", err);
+        setError(
+          err.response?.data?.message ||
+            (err.response
+              ? "The server returned an error while loading the dashboard."
+              : "Network error. Check your connection and try again.")
+        );
+      } finally {
+        if (!cancelled) setLoading(false);
+      }
+    };
+
+    fetchDashboardData();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [reloadKey]);
+
+  const handleRetry = () => {
+    setError("");
+    setLoading(true);
+    setReloadKey((key) => key + 1);
   };
-
-  fetchDashboardData();
-}, []);
 
   if (loading) return <DashboardSkeleton />;
 
-  if (error) return <p>{error}</p>;
+  if (error) {
+    return (
+      <ErrorState
+        title="Couldn't load the dashboard"
+        message={error}
+        onRetry={handleRetry}
+      />
+    );
+  }
 
   if (!dashboard) return <p>No dashboard data available.</p>;
 
