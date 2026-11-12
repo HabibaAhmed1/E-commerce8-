@@ -11,7 +11,7 @@ import ProductsList from "./pages/productsList";
 import AddProduct from "./pages/addProduct";
 import EditProduct from "./pages/editProduct";
 import OrdersList from "./pages/OrdersList";
-import OrderDetails from "./pages/OrderDetails";
+import OrderDetails from "./pages/OrderDetails"; 
 import Users from "./pages/Users";
 import CartsView from "./pages/CartsView";
 import Settings from "./pages/Settings";
@@ -19,6 +19,8 @@ import NotFound from "./pages/NotFound";
 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+
+
 
 function App() {
   return (
