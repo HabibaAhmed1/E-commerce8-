@@ -10,7 +10,7 @@ import Dashboard from "./pages/dashboardHome";
 import ProductsList from "./pages/productsList";
 import AddProduct from "./pages/addProduct";
 import EditProduct from "./pages/editProduct";
-import OrdersList from "./pages/OrdersList";
+import OrdersList from "./pages/orderList/ordersList";
 import OrderDetails from "./pages/OrderDetails";
 import Users from "./pages/Users";
 import CartsView from "./pages/CartsView";
