@@ -1,0 +1,37 @@
+[33ma7132f0[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32medit1[m[33m, [m[1;31morigin/main[m[33m)[m HEAD@{Fri Nov 6 22:06:25 2026}: reset: moving to origin/main
+[33m164029c[m HEAD@{Fri Nov 6 22:05:55 2026}: commit: add auth api
+[33mc25f03d[m[33m ([m[1;31morigin/edit1[m[33m)[m HEAD@{Fri Oct 30 11:24:43 2026}: commit: merge
+[33m3f34079[m[33m ([m[1;32mmain[m[33m)[m HEAD@{Fri Oct 30 11:21:37 2026}: checkout: moving from main to edit1
+[33m3f34079[m[33m ([m[1;32mmain[m[33m)[m HEAD@{Thu Oct 29 17:11:40 2026}: reset: moving to origin/main
+[33mc54bcf7[m[33m ([m[1;31morigin/feature/protectedRoutes[m[33m)[m HEAD@{Thu Oct 29 17:11:21 2026}: reset: moving to HEAD
+[33mc54bcf7[m[33m ([m[1;31morigin/feature/protectedRoutes[m[33m)[m HEAD@{Thu Oct 29 17:10:14 2026}: checkout: moving from feature/axios-interceptors to main
+[33mbf74d89[m[33m ([m[1;32mfeature/axios-interceptors[m[33m)[m HEAD@{Thu Oct 29 17:09:56 2026}: reset: moving to HEAD
+[33mbf74d89[m[33m ([m[1;32mfeature/axios-interceptors[m[33m)[m HEAD@{Thu Oct 29 17:08:34 2026}: reset: moving to HEAD
+[33mbf74d89[m[33m ([m[1;32mfeature/axios-interceptors[m[33m)[m HEAD@{Thu Oct 29 17:08:10 2026}: reset: moving to HEAD
+[33mbf74d89[m[33m ([m[1;32mfeature/axios-interceptors[m[33m)[m HEAD@{Thu Oct 29 17:08:04 2026}: checkout: moving from feature/axios-interceptors to feature/axios-interceptors
+[33mbf74d89[m[33m ([m[1;32mfeature/axios-interceptors[m[33m)[m HEAD@{Thu Oct 29 17:07:10 2026}: checkout: moving from feature/axios-interceptors to feature/axios-interceptors
+[33mbf74d89[m[33m ([m[1;32mfeature/axios-interceptors[m[33m)[m HEAD@{Thu Oct 29 17:04:28 2026}: reset: moving to bf74d89
+[33mf7bc375[m[33m ([m[1;31morigin/feature/page-users[m[33m, [m[1;31morigin/feature/axios-interceptors[m[33m, [m[1;32mfeature/page-users[m[33m, [m[1;32mfeature/page-user[m[33m, [m[1;32mfeature/page[m[33m)[m HEAD@{Thu Oct 29 17:03:25 2026}: checkout: moving from main to feature/axios-interceptors
+[33mc54bcf7[m[33m ([m[1;31morigin/feature/protectedRoutes[m[33m)[m HEAD@{Thu Oct 29 17:03:20 2026}: reset: moving to HEAD
+[33mc54bcf7[m[33m ([m[1;31morigin/feature/protectedRoutes[m[33m)[m HEAD@{Thu Oct 29 16:56:49 2026}: checkout: moving from main to main
+[33mc54bcf7[m[33m ([m[1;31morigin/feature/protectedRoutes[m[33m)[m HEAD@{Wed Oct 28 18:21:51 2026}: commit: resolve conflict
+[33mbf74d89[m[33m ([m[1;32mfeature/axios-interceptors[m[33m)[m HEAD@{Wed Oct 28 18:00:14 2026}: pull origin main: Fast-forward
+[33m32cc44f[m HEAD@{Wed Oct 28 17:59:51 2026}: checkout: moving from main to main
+[33m32cc44f[m HEAD@{Wed Oct 28 17:59:03 2026}: checkout: moving from feature/page-users to main
+[33mf7bc375[m[33m ([m[1;31morigin/feature/page-users[m[33m, [m[1;31morigin/feature/axios-interceptors[m[33m, [m[1;32mfeature/page-users[m[33m, [m[1;32mfeature/page-user[m[33m, [m[1;32mfeature/page[m[33m)[m HEAD@{Wed Oct 28 17:48:09 2026}: checkout: moving from feature/page-user to feature/page-users
+[33mf7bc375[m[33m ([m[1;31morigin/feature/page-users[m[33m, [m[1;31morigin/feature/axios-interceptors[m[33m, [m[1;32mfeature/page-users[m[33m, [m[1;32mfeature/page-user[m[33m, [m[1;32mfeature/page[m[33m)[m HEAD@{Wed Oct 28 17:48:06 2026}: checkout: moving from feature/page to feature/page-user
+[33mf7bc375[m[33m ([m[1;31morigin/feature/page-users[m[33m, [m[1;31morigin/feature/axios-interceptors[m[33m, [m[1;32mfeature/page-users[m[33m, [m[1;32mfeature/page-user[m[33m, [m[1;32mfeature/page[m[33m)[m HEAD@{Wed Oct 28 17:45:15 2026}: checkout: moving from feature/axios-interceptors to feature/page
+[33mf7bc375[m[33m ([m[1;31morigin/feature/page-users[m[33m, [m[1;31morigin/feature/axios-interceptors[m[33m, [m[1;32mfeature/page-users[m[33m, [m[1;32mfeature/page-user[m[33m, [m[1;32mfeature/page[m[33m)[m HEAD@{Wed Oct 28 17:44:26 2026}: commit: add page user
+[33m209a39b[m HEAD@{Wed Oct 28 17:16:25 2026}: merge origin/main: Fast-forward
+[33mf80d465[m HEAD@{Wed Oct 28 17:16:20 2026}: reset: moving to HEAD
+[33mf80d465[m HEAD@{Wed Oct 28 17:07:51 2026}: checkout: moving from main to feature/axios-interceptors
+[33m32cc44f[m HEAD@{Wed Oct 28 16:58:25 2026}: checkout: moving from feature/axios-interceptors to main
+[33mf80d465[m HEAD@{Wed Oct 28 13:39:01 2026}: commit (merge): Merge latest main with axios interceptors
+[33m32cc44f[m HEAD@{Wed Oct 28 13:25:03 2026}: checkout: moving from main to feature/axios-interceptors
+[33m32cc44f[m HEAD@{Wed Oct 28 13:17:04 2026}: commit: add axios interceptors
+[33mbfdf092[m HEAD@{Tue Oct 27 18:41:36 2026}: commit: API Connection & Add reusable loading components
+[33m3aea2a1[m HEAD@{Sun Oct 25 23:58:51 2026}: commit: Edit components2
+[33m3a0b3de[m HEAD@{Sun Oct 25 23:49:02 2026}: commit: Edit components
+[33m863a75d[m HEAD@{Sun Oct 25 23:10:25 2026}: commit (merge): Resolve README merge conflict
+[33mfcd4820[m HEAD@{Sun Oct 25 23:07:46 2026}: Branch: renamed refs/heads/main to refs/heads/main
+[33mfcd4820[m HEAD@{Sun Oct 25 23:07:26 2026}: commit (initial): Initial React project setup

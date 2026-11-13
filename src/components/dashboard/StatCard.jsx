@@ -1,3 +1,4 @@
+
 export default function StatCard({
   title,
   value,
@@ -6,39 +7,42 @@ export default function StatCard({
   gradient = "var(--gradient-brand)",
 }) {
   return (
-    <article className="group relative overflow-hidden rounded-[var(--radius-3xl)] border border-[var(--border-app)] bg-[var(--bg-surface-glass)] p-[var(--padding-card)] shadow-[var(--shadow-panel)] backdrop-blur-[var(--backdrop-blur)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[var(--shadow-2xl)]">
-      {/* Top Accent Gradient Line */}
+    <article className="group relative flex min-h-[164px] w-full overflow-hidden rounded-[24px] border border-slate-200/80 bg-white p-6 shadow-[0_10px_18px_rgba(15,23,42,0.10)] transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+
+      {/* Top Gradient Line */}
       <div
         className="absolute left-0 top-0 h-1 w-full"
-        style={{ backgroundImage: gradient }}
+        style={{ background: gradient }}
       />
 
-      {/* Ambient Radial Glow */}
+      {/* Ambient Glow */}
       <div
         className="pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full opacity-10 blur-3xl transition-opacity duration-300 group-hover:opacity-20"
-        style={{ backgroundImage: gradient }}
+        style={{ background: gradient }}
       />
 
-      {/* Header: Title and Icon */}
-      <div className="flex items-start justify-between gap-[var(--spacing-3)]">
-        <div>
-          <p className="text-[var(--font-size-sm)] font-[var(--font-weight-medium)] text-[var(--text-secondary)]">
+      {/* Card Content */}
+      <div className="relative flex w-full items-start justify-between gap-4">
+        <div className="min-w-0 flex-1">
+          <p className="text-sm font-medium text-slate-500">
             {title}
           </p>
-          <p className="mt-[var(--spacing-3)] text-[var(--font-size-3xl)] font-[var(--font-weight-bold)] text-[var(--text-primary)]">
+
+          <p className="mt-3 break-words text-[30px] font-bold leading-tight tracking-tight text-slate-900">
             {value}
           </p>
-          <p className="mt-[var(--spacing-1)] text-[var(--font-size-xs)] text-[var(--text-muted)]">
+
+          <p className="mt-2 text-xs text-slate-400">
             {subtitle}
           </p>
         </div>
 
-        {/* Icon Container with Gradient */}
+        {/* Icon */}
         <div
-          className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[var(--radius-2xl)] text-white shadow-[var(--shadow-md)]"
-          style={{ backgroundImage: gradient }}
+          className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl text-white shadow-md transition-transform duration-300 group-hover:scale-105"
+          style={{ background: gradient }}
         >
-          {Icon && <Icon size={22} />}
+          {Icon && <Icon size={25} strokeWidth={2} />}
         </div>
       </div>
     </article>
