@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 export default function ProductsList() {
+  // منتجات تجريبية مطابقة لتصميم الكروت الخاص بكم
   const [products] = useState([
     {
       _id: '12345',
@@ -42,10 +43,12 @@ export default function ProductsList() {
         </Link>
       </div>
 
+      {/* شبكة الكروت (Products Cards Grid) مطابقة للتصميم */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(450px, 1fr))', gap: '24px' }}>
         {products.map((item) => (
           <div key={item._id} className="products-table-card" style={{ padding: '20px', display: 'flex', flexDirection: 'column', gap: '15px' }}>
             
+            {/* صورة المنتج مع بادج الـ Featured والـ Stock */}
             <div style={{ position: 'relative', width: '100%', height: '240px', borderRadius: '12px', overflow: 'hidden', background: '#f0f1f6' }}>
               <img src={item.image} alt={item.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               
@@ -60,6 +63,7 @@ export default function ProductsList() {
               </span>
             </div>
 
+            {/* تفاصيل المنتج */}
             <div>
               <span style={{ color: 'var(--products-primary)', fontSize: '10px', fontWeight: '800', letterSpacing: '1px' }}>
                 {item.category}
@@ -71,6 +75,7 @@ export default function ProductsList() {
                 {item.description}
               </p>
 
+              {/* السعر والخصم */}
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '12px' }}>
                 <span className="products-price" style={{ fontSize: '22px' }}>${item.price}</span>
                 {item.discount && (
@@ -78,6 +83,7 @@ export default function ProductsList() {
                 )}
               </div>
 
+              {/* الـ Tags */}
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginBottom: '15px' }}>
                 {item.tags.map((tag, idx) => (
                   <span key={idx} style={{ background: '#f3f4f6', color: '#4b5563', padding: '4px 10px', borderRadius: '6px', fontSize: '11px' }}>
@@ -87,12 +93,14 @@ export default function ProductsList() {
               </div>
             </div>
 
+            {/* أزرار التحكم (View, Edit, Quick Edit, Delete) */}
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingTop: '15px', borderTop: '1px solid var(--products-border)' }}>
               <div style={{ display: 'flex', gap: '8px' }}>
                 <button className="products-secondary-button" style={{ padding: '6px 12px', fontSize: '12px' }}>
                   👁️ View
                 </button>
                 
+                {/* زر التعديل الأساسي اللي بيودي لصفحة الـ Edit بتاعتك */}
                 <Link to={`/dashboard/products/${item._id}/edit`} className="products-secondary-button" style={{ padding: '6px 12px', fontSize: '12px', textDecoration: 'none', color: 'inherit', display: 'inline-flex', alignItems: 'center', gap: '5px' }}>
                   ✏️ Edit
                 </Link>
