@@ -1,4 +1,3 @@
-
 import {
   ShoppingBag,
   Clock,
@@ -11,15 +10,12 @@ import {
 import StatCard from "./StatCard";
 
 export default function StatsGrid({ stats }) {
-  // Prevent errors if dashboard data is not loaded
   if (!stats) return null;
 
-  // Extract dashboard data
   const orders = stats.orders || {};
   const revenue = stats.revenue || {};
   const topProducts = stats.topProducts || [];
 
-  // Get top product
   const topProduct = topProducts[0] || {};
 
   const dashboardStats = [
@@ -68,10 +64,10 @@ export default function StatsGrid({ stats }) {
   ];
 
   return (
-    <div className="grid gap-[var(--spacing-6)] sm:grid-cols-2 xl:grid-cols-3">
-      {dashboardStats.map((stat, idx) => (
-        <StatCard key={idx} {...stat} />
+    <section className="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3">
+      {dashboardStats.map((stat) => (
+        <StatCard key={stat.title} {...stat} />
       ))}
-    </div>
+    </section>
   );
 }
